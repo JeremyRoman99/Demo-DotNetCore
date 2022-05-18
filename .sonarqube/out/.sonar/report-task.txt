@@ -1,6 +1,6 @@
-projectKey=test-demoo
+projectKey=test-DogNet1
 serverUrl=http://149.56.14.3:9000/sonar
 serverVersion=9.3.0.51899
-dashboardUrl=http://149.56.14.3:9000/sonar/dashboard?id=test-demoo
-ceTaskId=AYDY-ldYFM1KxWNwDwfJ
-ceTaskUrl=http://149.56.14.3:9000/sonar/api/ce/task?id=AYDY-ldYFM1KxWNwDwfJ
+dashboardUrl=http://149.56.14.3:9000/sonar/dashboard?id=test-DogNet1
+ceTaskId=AYDZBibdFM1KxWNwDwfK
+ceTaskUrl=http://149.56.14.3:9000/sonar/api/ce/task?id=AYDZBibdFM1KxWNwDwfK

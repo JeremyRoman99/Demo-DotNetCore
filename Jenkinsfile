@@ -1,5 +1,5 @@
 pipeline {
-  agent {label "SlaveWindows"}
+  agent any
   environment {
       EMAIL_RECIPIENTS = 'alessandra.rosado2308@gmail.com'      
   }  
@@ -7,10 +7,10 @@ pipeline {
 
      stage('Sonar') {
       steps {        
-        bat 'dotnet tool install --global dotnet-sonarscanner'
-        bat 'dotnet sonarscanner begin /k:"test-DogNet1" /d:sonar.host.url="http://149.56.14.3:9000/sonar"  /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
-        bat 'dotnet build'
-        bat 'dotnet sonarscanner end /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
+        sh 'dotnet tool install --global dotnet-sonarscanner'
+        sh 'dotnet sonarscanner begin /k:"test-DogNet1" /d:sonar.host.url="http://149.56.14.3:9000/sonar"  /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
+        sh 'dotnet build'
+        sh 'dotnet sonarscanner end /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
       }
     }
     
