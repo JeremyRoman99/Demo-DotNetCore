@@ -1,0 +1,1 @@
+C:\Users\Jeremy\source\repos\Demo-DotNetCore\.sonarqube\out\0
