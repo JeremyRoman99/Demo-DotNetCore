@@ -16,8 +16,6 @@ pipeline {
         nunit(testResultsPattern: 'TestResult.xml')
       }
     }
-    
-
      stage('Sonar') {
       steps {        
         bat 'dotnet tool install --global dotnet-sonarscanner'
