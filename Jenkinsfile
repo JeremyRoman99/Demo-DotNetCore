@@ -5,6 +5,19 @@ pipeline {
   }  
   stages {
 
+      stage('Build') {
+      steps {        
+        sh "msbuild /t:build /restore:True"
+      }
+    }
+    stage('Test'){      
+      steps {
+        sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Test/bin/*/net4*/*.Test.dll'
+        nunit(testResultsPattern: 'TestResult.xml')
+      }
+    }
+    
+
      stage('Sonar') {
       steps {        
         sh 'dotnet tool install --global dotnet-sonarscanner'
