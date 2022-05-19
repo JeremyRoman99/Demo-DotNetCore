@@ -23,8 +23,7 @@ pipeline {
         bat 'dotnet build'
         bat 'dotnet sonarscanner end /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
       }
-    }
-    
+    }   
     
 
     
