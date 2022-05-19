@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent {label "SlaveWindows"}
   environment {
       EMAIL_RECIPIENTS = 'alessandra.rosado2308@gmail.com'      
   }  
@@ -7,12 +7,12 @@ pipeline {
 
       stage('Build') {
       steps {        
-        sh "msbuild /t:build /restore:True"
+        bat "msbuild /t:build /restore:True"
       }
     }
     stage('Test'){      
       steps {
-        sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Test/bin/*/net4*/*.Test.dll'
+        bat 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Test/bin/*/net4*/*.Test.dll'
         nunit(testResultsPattern: 'TestResult.xml')
       }
     }
@@ -20,10 +20,10 @@ pipeline {
 
      stage('Sonar') {
       steps {        
-        sh 'dotnet tool install --global dotnet-sonarscanner'
-        sh 'dotnet sonarscanner begin /k:"test-DogNet1" /d:sonar.host.url="http://149.56.14.3:9000/sonar"  /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
-        sh 'dotnet build'
-        sh 'dotnet sonarscanner end /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
+        bat 'dotnet tool install --global dotnet-sonarscanner'
+        bat 'dotnet sonarscanner begin /k:"test-DogNet1" /d:sonar.host.url="http://149.56.14.3:9000/sonar"  /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
+        bat 'dotnet build'
+        bat 'dotnet sonarscanner end /d:sonar.login="bae6453470b563aaaa3f37ee1279bbfe5137e362"'
       }
     }
     
